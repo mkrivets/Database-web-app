@@ -3,22 +3,54 @@
 @{
     ViewData["Title"] = "Create";
 }
+<head>
+    <style>
+        body {
+            background-image: url(https://images.unsplash.com/photo-1510137600163-2729bc6959a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1201&q=80);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
 
-<h1>Create</h1>
+        table {
+            background-color: rgba(0, 0, 0, 0.55);
+            border-bottom-color: black;
+        }
 
-<h4>CatTemper</h4>
+        .display-5 {
+            color: white;
+        }
+
+        .row {
+            background-color: rgba(0, 0, 0, 0.45);
+            color: white;
+        }
+
+        .loc-r {
+            margin-right: 4px;
+        }
+
+        .btn {
+            background-color: black;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+
+<h1>Create new Temper & Cat</h1>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form class="display-5" asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="CatId" class="control-label"></label>
-                <select asp-for="CatId" class ="form-control" asp-items="ViewBag.CatId"></select>
+                <select asp-for="CatId" class="form-control" asp-items="ViewBag.CatId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="TemperId" class="control-label"></label>
-                <select asp-for="TemperId" class ="form-control" asp-items="ViewBag.TemperId"></select>
+                <select asp-for="TemperId" class="form-control" asp-items="ViewBag.TemperId"></select>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -28,7 +60,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a class="display-5" asp-action="Index">Back to List</a>
 </div>
 
 @section Scripts {

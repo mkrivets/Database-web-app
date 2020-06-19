@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Masha\\Desktop\\Лаба 1 ИСТП\\Cats\\Cats.csproj": {}
+    "C:\\Users\\Masha\\Desktop\\Лаба 1\\Cats\\Cats.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Masha\\Desktop\\Лаба 1 ИСТП\\Cats\\Cats.csproj": {
+    "C:\\Users\\Masha\\Desktop\\Лаба 1\\Cats\\Cats.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Masha\\Desktop\\Лаба 1 ИСТП\\Cats\\Cats.csproj",
+        "projectUniqueName": "C:\\Users\\Masha\\Desktop\\Лаба 1\\Cats\\Cats.csproj",
         "projectName": "Cats",
-        "projectPath": "C:\\Users\\Masha\\Desktop\\Лаба 1 ИСТП\\Cats\\Cats.csproj",
+        "projectPath": "C:\\Users\\Masha\\Desktop\\Лаба 1\\Cats\\Cats.csproj",
         "packagesPath": "C:\\Users\\Masha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Masha\\Desktop\\Лаба 1 ИСТП\\Cats\\obj\\",
+        "outputPath": "C:\\Users\\Masha\\Desktop\\Лаба 1\\Cats\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

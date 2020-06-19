@@ -3,28 +3,61 @@
 @{
     ViewData["Title"] = "Details";
 }
+<head>
+    <style>
+        body {
+            background-image: url(https://images.unsplash.com/photo-1510137600163-2729bc6959a6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1201&q=80);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
 
-<h1>Details</h1>
+        table {
+            background-color: rgba(0, 0, 0, 0.55);
+            border-bottom-color: black;
+        }
+
+        .display-5 {
+            color: white;
+        }
+
+        .row {
+            background-color: rgba(0, 0, 0, 0.45);
+            color: white;
+        }
+
+        .loc-r {
+            margin-right: 4px;
+        }
+
+        .btn {
+            background-color: black;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+
+
+<h1 class="display-5">Details</h1>
 
 <div>
-    <h4>Breed</h4>
-    <hr />
+    <hr class="display-5" />
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Name)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Info)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Info)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a class="display-5" asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
+    <a class="display-5" asp-action="Index">Back to List</a>
 </div>

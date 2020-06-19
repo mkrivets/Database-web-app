@@ -39,7 +39,7 @@ namespace Cats.Controllers
                 return NotFound();
             }
 
-            return View(temper);
+            return RedirectToAction("Index", "CatTempers", new { id = temper.Id, name = temper.Name });
         }
 
         // GET: Tempers/Create

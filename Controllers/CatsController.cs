@@ -19,11 +19,38 @@ namespace Cats.Controllers
         }
 
         // GET: Cats
-        public async Task<IActionResult> Index()
+
+        public async Task<IActionResult> Index(int? id, string? name)
         {
-            var dBCatteryContext = _context.Cat.Include(c => c.Breed).Include(c => c.Cattery);
-            return View(await dBCatteryContext.ToListAsync());
+            if (id == null)
+            {
+                var cats = _context.Cat.Include(a => a.Cattery).Include(a => a.Breed);
+                return View(await cats.ToListAsync());
+            }
+            // find cats with appropriate cattery
+            ViewBag.Id = id;
+            ViewBag.Name = name;
+            var cats1 = _context.Cat.Where(c => c.Id == id).Include(c => c.Cattery).Include(a => a.Breed);
+            return View(await cats1.ToListAsync());
         }
+
+        public async Task<IActionResult> Detail(int? BreedId)
+        {
+            if (BreedId == null)
+            {
+                return NotFound();
+            }
+
+            var breed = await _context.Breed
+                .FirstOrDefaultAsync(m => m.Id == BreedId);
+            if (breed == null)
+            {
+                return NotFound();
+            }
+
+            return RedirectToAction("Index", "Breeds", new { id = breed.Id });
+        }
+
 
         // GET: Cats/Details/5
         public async Task<IActionResult> Details(int? id)

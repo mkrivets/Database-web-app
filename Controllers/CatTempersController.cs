@@ -19,10 +19,13 @@ namespace Cats.Controllers
         }
 
         // GET: CatTempers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id, string? name)
         {
-            var dBCatteryContext = _context.CatTemper.Include(c => c.Cat).Include(c => c.Temper);
-            return View(await dBCatteryContext.ToListAsync());
+            if (id == 0) return RedirectToAction("Index", "Tempers");
+            ViewBag.TemperId = id;
+            ViewBag.Name = name;
+            var cattempers = _context.CatTemper.Where(a => a.TemperId == id).Include(a => a.Temper).Include(a => a.Cat);
+            return View(await cattempers.ToListAsync());
         }
 
         // GET: CatTempers/Details/5
@@ -42,7 +45,7 @@ namespace Cats.Controllers
                 return NotFound();
             }
 
-            return View(catTemper);
+            return RedirectToAction("Index", "Cats", new { id = catTemper.CatId });
         }
 
         // GET: CatTempers/Create

@@ -55,7 +55,7 @@ namespace Cats
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Catteries}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

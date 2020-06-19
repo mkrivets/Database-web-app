@@ -4,14 +4,56 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+
+
+    <head>
+        <style>
+            body {
+                background-image: url(https://images.unsplash.com/photo-1557166983-5939644443a0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80);
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+            }
+
+            table {
+                background-color: rgba(0, 0, 0, 0.55);
+                border-bottom-color: black;
+            }
+
+            .display-5 {
+                color: white;
+            }
+
+            .row {
+                background-color: rgba(0, 0, 0, 0.45);
+                color: white;
+            }
+
+            .loc-r {
+                margin-right: 4px;
+            }
+
+            .btn {
+                background-color: black;
+                border: 2px solid white;
+            }
+        </style>
+    </head>
+
+
+
+
+
+
+
+<h1 class="display-5">Cats</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="display-5" asp-action="Create">Add New Cat</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
+        <tr class="display-5">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -32,7 +74,7 @@
     </thead>
     <tbody>
 @foreach (var item in Model) {
-        <tr>
+        <tr class="display-5">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -43,15 +85,14 @@
                 @Html.DisplayFor(modelItem => item.Gender)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Breed.Name)
+                @Html.ActionLink(@item.Breed.Name, "Detail", new { BreedId = item.Id }, new {@class="display-5"})
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Cattery.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a class="display-5" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a class="display-5" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }

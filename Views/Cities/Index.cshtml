@@ -3,15 +3,48 @@
 @{
     ViewData["Title"] = "Index";
 }
+<head>
+    <style>
+        body {
+            background-image: url(https://images.unsplash.com/photo-1591435464356-a0a317a49b3f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+        }
 
-<h1>Index</h1>
+        table {
+            background-color: rgba(0, 0, 0, 0.55);
+            border-bottom-color: black;
+        }
+
+        .display-5 {
+            color: white;
+        }
+
+        .row {
+            background-color: rgba(0, 0, 0, 0.45);
+            color: white;
+        }
+
+        .loc-r {
+            margin-right: 4px;
+        }
+
+        .btn {
+            background-color: black;
+            border: 2px solid white;
+        }
+    </style>
+</head>
+
+<h1 class="display-5">Cities</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a class="display-5" asp-action="Create">Create New City</a>
 </p>
 <table class="table">
     <thead>
-        <tr>
+        <tr class="display-5">
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -19,17 +52,17 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr class="display-5">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    <a class="display-5" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a class="display-5" asp-action="Details" asp-route-id="@item.Id">Catteries in city</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

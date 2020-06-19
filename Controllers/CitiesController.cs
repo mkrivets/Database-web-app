@@ -39,7 +39,6 @@ namespace Cats.Controllers
                 return NotFound();
             }
 
-            //return View(city);
             return RedirectToAction("Index", "Catteries", new { id = city.Id, name = city.Name});
         }
 

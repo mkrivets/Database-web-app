@@ -18,10 +18,19 @@ namespace Cats.Controllers
             _context = context;
         }
 
+
         // GET: Breeds
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            return View(await _context.Breed.ToListAsync());
+            if (id == null)
+            {
+                var breeds = _context.Breed;
+                return View(await breeds.ToListAsync());
+            }
+            ViewBag.id = id;
+            var breed = _context.Breed.Where(b => b.Id == id);
+            //var musicDataBaseContext = _context.Bands.Include(b => b.Country);
+            return View(await breed.ToListAsync());
         }
 
         // GET: Breeds/Details/5
@@ -39,7 +48,7 @@ namespace Cats.Controllers
                 return NotFound();
             }
 
-            return View(breed);
+            return RedirectToAction("Index", "Cats", new { id = breed.Id, name = breed.Name });
         }
 
         // GET: Breeds/Create

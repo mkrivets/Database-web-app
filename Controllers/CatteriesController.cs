@@ -21,12 +21,16 @@ namespace Cats.Controllers
         // GET: Catteries
         public async Task<IActionResult> Index(int? id, string? name)
         {
-            if (id == null) return RedirectToAction("Cities","Index");
+            if (id == null)
+            {
+                var catteries = _context.Cattery.Include(a => a.City);
+                return View(await catteries.ToListAsync());
+            }
             // find catteries with appropriate city
             ViewBag.CityId = id;
-            ViewBag.CityName = name;
-            var dBCatteryContext = _context.Cattery.Include(c => c.City);
-            return View(await dBCatteryContext.ToListAsync());
+            ViewBag.Name = name;
+            var catteriesByCity = _context.Cattery.Where(c => c.CityId == id).Include(c => c.City);
+            return View(await catteriesByCity.ToListAsync());
         }
 
         // GET: Catteries/Details/5
@@ -45,7 +49,7 @@ namespace Cats.Controllers
                 return NotFound();
             }
 
-            return View(cattery);
+            return RedirectToAction("Index", "Cats", new { id = cattery.Id, name = cattery.Name });
         }
 
         // GET: Catteries/Create
